@@ -9,7 +9,7 @@
 
 </div>
 
-https://github.com/user-attachments/assets/REPLACE_WITH_MAIN_SCREENSHOT.mp4
+<img src="https://github.com/555cute/job-helper/blob/master/docs/screenshots/agent.png?raw=true" width="100%" alt="求职助手截图" />
 
 ---
 
