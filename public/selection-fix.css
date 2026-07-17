@@ -1,0 +1,20 @@
+/* 独立静态文件，Electron 侧也会强制注入。选中必须是深色字。 */
+::selection,
+*::selection {
+  background: #bfdbfe !important;
+  background-color: #bfdbfe !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+::-moz-selection,
+*::-moz-selection {
+  background: #bfdbfe !important;
+  color: #0f172a !important;
+}
+footer,
+footer *,
+.app-status,
+.app-status * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}

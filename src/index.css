@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+.markdown-body {
+  color: #374151;
+  line-height: 1.7;
+}
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  color: #111827;
+  margin: 1em 0 0.5em;
+  line-height: 1.3;
+}
+.markdown-body h1 { font-size: 1.5em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.3em; }
+.markdown-body h2 { font-size: 1.25em; }
+.markdown-body h3 { font-size: 1.1em; }
+.markdown-body h4 { font-size: 1em; }
+.markdown-body p { margin: 0.6em 0; }
+.markdown-body ul,
+.markdown-body ol { padding-left: 1.5em; margin: 0.6em 0; }
+.markdown-body li { margin: 0.2em 0; }
+.markdown-body ul { list-style: disc; }
+.markdown-body ol { list-style: decimal; }
+.markdown-body code {
+  background: #f3f4f6;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #be185d;
+}
+.markdown-body pre {
+  background: #1f2937;
+  color: #f9fafb;
+  padding: 0.8em 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 12px;
+}
+.markdown-body pre code { background: transparent; color: inherit; padding: 0; }
+.markdown-body blockquote {
+  border-left: 3px solid #6366f1;
+  padding-left: 1em;
+  color: #6b7280;
+  margin: 0.8em 0;
+  background: #f9fafb;
+  padding: 0.5em 1em;
+  border-radius: 0 4px 4px 0;
+}
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.8em 0;
+  font-size: 0.9em;
+}
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid #e5e7eb;
+  padding: 0.4em 0.6em;
+  text-align: left;
+}
+.markdown-body th { background: #f9fafb; font-weight: 600; }
+.markdown-body hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.2em 0;
+}
+.markdown-body strong { font-weight: 600; color: #111827; }
+.markdown-body em { font-style: italic; }
+
+@theme {
+  --font-sans: "Segoe UI Variable", "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/*
+ * 关键修复：整站默认禁止文本选择。
+ * Electron/Chromium 在部分环境下选中高亮背景不绘制，文字会“消失”。
+ * 只有输入框允许选择/复制。
+ */
+html,
+body,
+#root,
+* {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+input,
+textarea,
+[contenteditable='true'],
+.allow-select,
+.allow-select * {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* 输入框选中：深色字 + 浅蓝底 */
+input::selection,
+textarea::selection,
+[contenteditable]::selection,
+.allow-select::selection,
+.allow-select *::selection {
+  background: #bfdbfe !important;
+  color: #0f172a !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #ffffff;
+  color: #111827;
+  font-size: 13.5px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+body:not(.is-desktop) {
+  background: #e8ecf1;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  border: none;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.app-shell {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.app-shell-desktop {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.app-shell-web {
+  width: 100%;
+  height: 100%;
+}
+
+body:not(.is-desktop) .app-shell-web {
+  margin: 0 auto;
+  max-width: 1440px;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.02);
+}
+
+.app-main {
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 12px;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  padding: 9px 12px;
+  font-size: 13px;
+  color: #111827;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+.field::placeholder {
+  color: #9ca3af;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  color: #374151;
+  font-size: 12.5px;
+  font-weight: 550;
+  transition: all 0.15s ease;
+}
+.btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+.btn-primary {
+  border-color: transparent;
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(79, 70, 229, 0.25);
+}
+.btn-primary:hover {
+  background: #4338ca;
+}
+.btn-soft {
+  border-color: transparent;
+  background: #eef2ff;
+  color: #4338ca;
+}
+.btn-soft:hover {
+  background: #e0e7ff;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+.tab:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+.tab.active {
+  background: #eef2ff;
+  color: #3730a3;
+  box-shadow: inset 0 0 0 1px #c7d2fe;
+  font-weight: 600;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.muted {
+  color: #9ca3af;
+  font-size: 12px;
+}

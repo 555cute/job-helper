@@ -1,0 +1,8 @@
+node_modules/
+dist/
+data/
+*.db
+*.exe
+Thumbs.db
+.vite/
+.DS_Store
