@@ -116,7 +116,7 @@ npm run dev:desktop
 | OpenAI | `https://api.openai.com/v1` | 需要 API Key |
 | Ollama | `http://127.0.0.1:11434/v1` | 本地运行 |
 
-![Agent 设置](docs/screenshots/settings-agent.png)
+![Agent 设置](docs/screenshots/settings.png)
 
 ### 2. 配置数据源
 
@@ -126,8 +126,6 @@ npm run dev:desktop
 - **Boss直聘** (zhipin.com)
 - **智联招聘** (zhaopin.com)
 - **猎聘** (liepin.com)
-
-![数据源设置](docs/screenshots/settings-sources.png)
 
 ---
 
