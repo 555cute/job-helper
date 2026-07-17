@@ -126,7 +126,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [settings, setSettingsState] = useState<AppSettings>(() =>
     loadJson(STORAGE_KEYS.settings, defaultSettings),
   )
-  const [nav, setNav] = useState<NavKey>(settings.general.startPage)
+  const [nav, setNav] = useState<NavKey>(() => {
+    const hash = typeof location !== 'undefined' ? location.hash.replace('#', '') : ''
+    const validKeys = ['workbench', 'agent', 'resume', 'search', 'pipeline', 'interview', 'settings']
+    return validKeys.includes(hash) ? hash as NavKey : settings.general.startPage
+  })
   const [seedPrompt, setSeedPrompt] = useState<string | null>(null)
   const [resume, setResumeState] = useState<ResumeSection[]>(() =>
     loadArray(STORAGE_KEYS.resume, defaultResume),

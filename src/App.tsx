@@ -15,7 +15,10 @@ import { isDesktopApp } from './lib/desktop'
 
 function Shell() {
   const { nav, hasResume, setNav } = useApp()
-  const [skipped, setSkipped] = useState(false)
+  const [skipped, setSkipped] = useState(
+    () => !!localStorage.getItem('job-helper:onboarded:v2') ||
+    !!location.hash
+  )
   const desktop = isDesktopApp()
   const showOnboarding = !hasResume && !skipped
 
