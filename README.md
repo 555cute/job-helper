@@ -116,7 +116,7 @@ npm run dev:desktop
 | OpenAI | `https://api.openai.com/v1` | 需要 API Key |
 | Ollama | `http://127.0.0.1:11434/v1` | 本地运行 |
 
-![Agent 设置](docs/screenshots/settings.png)
+![Agent 设置](docs/screenshots/settings-agent.png)
 
 ### 2. 配置数据源
 
